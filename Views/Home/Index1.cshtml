@@ -1,0 +1,109 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Khumalo Craft</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f2f2f2;
+            color: #fff;
+            padding: 20px;
+            text-align: center:
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #e67e22;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>About Us - Khumalo Craft</h1>
+
+        <header>
+
+            <div class="container">
+                <h2>Our Story</h2>
+                <p>Welcome to Khumalo CraftMarketplace, where creativity meets craftsmanship. We are passionate about connecting talented artists with discerning customers who appreciate unique, handmade products.</p>
+                <p>Our journey began in 2010 when our founder, Mr James Khumalo, envisioned a platform where local artists could showcase their skilols and reach a wider audieence. Since then, we have been dedicated to promoting traditional crafsmanship and supporting artisans in growing their businesses.</p>
+
+                <h2>Our Mission</h2>
+                <p>At Khumal Craft, our mission is to celebrate diversity and cultural heritagte through artisanal craftmanship. We strive to provide a platform where artists can thrive, communities can prosperm and customers can discover beautiful handmamde products that tell a  story.</p>
+                <h2>Why choose Khumalo Craft?</h2>
+                <p>When you shop with Khumalo Craft, you're not just purchasing a product- you're supporting sustainable livelihoods and preserving cultural traditions.We carefully create our marketplace to ensure that every item is ethically sourced and of the highest quality.</p>
+            </div>
+
+            <div class="text-center">
+                <h1 class="display-4">Welcome</h1>
+                <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+            </div>
+
+            <h2>Welcome to the Home Page!</h2>
+
+            @if (UserID != null)
+            {
+                <p>User ID: @UserID</p>
+            }
+
+            <h2>All Products</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Availability</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Products)
+                    {
+                        <tr>
+                            <td>@product.Name</td>
+                            <td>@product.Price</td>
+                            <td>@product.Category</td>
+                            <td>@product.Availability</td>
+                            <td>
+                                <form asp-controller="Transaction" asp-action="PlaceOrder" method="post">
+                                    <input type="hidden" name="userID" value="@UserID" />
+                                    <input type="hidden" name="productID" value="@product.ProductID" />
+                                    <button type="submit">Place Order</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+</body>
+            </header>
+            </header>
+
+
+
+
+</html>
